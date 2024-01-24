@@ -27,3 +27,20 @@ const images = [
     alt: 'Zebras on Zebra',
   },
 ];
+
+const makeGalleryCard = (image) => {
+
+  const {url, alt} = image;
+
+  return `
+  <li>
+    <img src="${url}" alt="${alt}" width="320">
+  </li>
+  `;
+}
+
+const galleryList = document.querySelector('.gallery');
+
+const cardMarkup = images.map(makeGalleryCard).join('');
+
+galleryList.insertAdjacentHTML('beforeend', cardMarkup);
